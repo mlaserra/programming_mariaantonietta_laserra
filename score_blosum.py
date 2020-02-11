@@ -16,5 +16,5 @@ def score(seq1,seq2):
     return score                                                    #from blosum dictionary
     blosum_file.close()                                             #Close the file
 
-print "The score of the sequences alignment with BLOSUM50 matrix is", score(seq1,seq2)
+print "The score of the sequences alignment with BLOSUM matrix is", score(seq1,seq2)
 
