@@ -7,6 +7,7 @@ def read_matrix(matrix_file):
         for i in range(len(AA)):
             matrix[AA[i]+line[0]]= int(line[i+1])
             matrix[line[0]+AA[i]]= int(line[i+1])
+    infile.close()
     return matrix
 
 print read_matrix("blosum.txt")
