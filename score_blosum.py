@@ -3,8 +3,7 @@ seq2 ="ASAVHLNRLITRLYP"
 def score(seq1,seq2):
     blosum = {}                                     #Create an empty dictionary for the pairs of the matrix
     blosum_file = open("blosum.txt","r")            # Read the matrix
-    aminoacids = blosum_file.readline()             
-    aminoacids = AA.split()                         #Create a list of the aminoacids of the matrix
+    aminoacids = blosum_file.readline().split()     #Create a list of the aminoacids of the matrix
     for line in blosum_file:
         values = line.split()                       #Iterate for each line creating a list of the values associated to each pairs of AA
         for i in range(len(aminoacids)):                        #Iterate for all the AA filling the blosum dictionary
