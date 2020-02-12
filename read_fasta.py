@@ -5,6 +5,7 @@ def read_fasta(fasta_file):
         if not line.startswith('>'):
             line = line.strip()
             sequences.append(line)
+    infile.close()
     return sequences
 
 print read_fasta("alignments.fasta")
