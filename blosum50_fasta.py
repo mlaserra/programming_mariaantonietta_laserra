@@ -19,6 +19,7 @@ def take_seq(fasta_file):
             if not line.startswith('>'):
                 line = line.strip()                                                         #Take the sequences and store them into the list
                 sequences.append(line)                                                      #created before
+        sequences_file.close()
         return sequences
 
 
