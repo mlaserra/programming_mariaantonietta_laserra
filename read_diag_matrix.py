@@ -9,6 +9,7 @@ def read_matrix(matrix_file):
             matrix[AA[n]+AA[i]]= int(line[i][:-1])
             matrix[AA[i]+AA[n]]= int(line[i][:-1])
         n = n +1
+    infile.close()
     return matrix
 
 print read_matrix("PAM250.txt")
