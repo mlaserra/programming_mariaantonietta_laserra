@@ -29,6 +29,9 @@ def build_matrix(s1,s2,matrix_file,d):
     return score_matrix, traceback_matrix
 
 
+seq1 = "GSAQVKGHGKKVADALTNAVAHVDDMPNALSALSDLHAHKL"
+seq2 = "GNPKVKAHGKKVLGAFSDGLAHLDNLKGTFATLSELHCDKL"
+
 
 print build_matrix(seq1,seq2,"BLOSUM62.txt", -2)
 
