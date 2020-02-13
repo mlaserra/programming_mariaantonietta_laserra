@@ -19,10 +19,10 @@ def build_matrix(s1,s2,matrix_file,d):
         for c in range(1,m):
             scores = {}
             up = 0
-            letf = 0
+            left = 0
             diag = 0
             up = score_matrix[r-1][c] + d
-            letf = score_matrix[r][c-1] +d
+            left = score_matrix[r][c-1] +d
             diag = score_matrix[r-1][c-1] + read_matrix(matrix_file)[s1[c-1]+s2[r-1]])
             final_score = max(up, diag, left)
             score_matrix[r][c]= final_score
