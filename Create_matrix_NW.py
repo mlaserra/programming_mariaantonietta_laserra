@@ -15,6 +15,9 @@ def build_matrix(s1,s2,d):
     for q in range(1, n):
         score_matrix[q][0]= q *-d
         traceback_matrix[q][0] = "u"
+    for p in range(1,m):
+        for q in range(1,n):
+            scores = {}
     return score_matrix, traceback_matrix
 
 
