@@ -1,4 +1,4 @@
-def build_matrix(s1,s2,d):
+def build_matrix(s1,s2,matrix_file,d):
     score_matrix = []
     traceback_matrix = []
     m = len(s1)+1
@@ -15,11 +15,20 @@ def build_matrix(s1,s2,d):
     for r in range(1, n):
         score_matrix[r][0]= r *-d
         traceback_matrix[r][0] = "u"
-    for r in range(1,n):
+     for r in range(1,n):
         for c in range(1,m):
             scores = {}
+            up = 0
+            letf = 0
+            diag = 0
+            up = score_matrix[r-1][c] + d
+            letf = score_matrix[r][c-1] +d
+            diag = score_matrix[r-1][c-1] + read_matrix(matrix_file)[s1[c-1]+s2[r-1]])
+            final_score = max(up, diag, left)
+            score_matrix[r][c]= final_score
     return score_matrix, traceback_matrix
 
 
-print build_matrix("AAA","CC",2)
+
+print build_matrix(seq1,seq2,"BLOSUM62.txt", -2)
 
