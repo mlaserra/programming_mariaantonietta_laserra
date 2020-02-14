@@ -1,0 +1,67 @@
+def build_matrices(seq1,seq2,matrix,d):
+    score_matrix = []
+    traceback_matrix = []
+    m = len(seq1)+1
+    n = len(seq2)+1
+    for r in range(n):
+        score_matrix.append([0]*4)
+        traceback_matrix.append([0]*4)
+    for r in range(n):
+        score_matrix[r][0] = d * r
+        traceback_matrix[r][0] = "u"
+    for c in range(m):
+        score_matrix[0][c]= d * c
+        traceback_matrix[0][c] = "l"
+    for r in range(1,n):
+        for c in range(1,m):
+            scores = {}
+            up = 0
+            left = 0
+            diag = 0
+            up = matrix_score[r-1][c]+d
+            letf = score_matrix[r][c-1] +d
+            diag = score_matrix[r-1][c-1] + matrix[seq1[c-1]+seq2[r-1]]
+            final_score = max(up,diag,left)
+            matrix_score[r][c] = final_score
+            scores["u"] = up
+            scores["l"] = left
+            scores["d"]=diag
+            traceback_matrix[r][c] = scores.get(max(scores))
+    return matrix_score, traceback_matrix
+    
+    
+    
+    def align(F,P,seq1,seq2):
+    first = ""
+    middle = ""
+    second = ""
+    score = 0
+    row = len(seq2)
+    col = len(seq1)
+    while row != 0:
+        while col !=0:
+            if P[row][col]="u":
+                first = first + "-"
+                middle = middle + " "
+                second = second + seq2[r][c]
+                row = row -1
+                score = score + F[row-1][col]
+            elif P[row][col] = "l":
+                first = first + seq1[r][c]
+                middle = middle + " "
+                second = second + "-"
+                col = col -1
+                score = score + F[row][col-1]
+            else:
+                col = col -1
+                row = row -1
+                score = score + F[row-1][col -1]
+                first = first + seq1[r][c]
+                second = second + seq2[r][c]
+                middle = middle + "|"
+    return first, middle, second, score
+
+seq1 = "stringa1"
+seq2 = "stringa2"
+
+print align(build_matrices(seq1,seq2,"BLOSUM62.txt", -2), seq1,seq2)
